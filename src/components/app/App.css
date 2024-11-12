@@ -11,3 +11,10 @@
   letter-spacing: 15px;
   margin-bottom: 30px;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

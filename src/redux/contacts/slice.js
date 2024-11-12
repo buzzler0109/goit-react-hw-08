@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import data from "../data.json";
+import data from "../../data.json";
 import { addContact, deleteContact, fetchContacts } from "./operations";
 
 const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
-    items: [],
+    items: data,
     loading: false,
     error: null,
   },
