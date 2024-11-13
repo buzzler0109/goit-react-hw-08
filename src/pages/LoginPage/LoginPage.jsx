@@ -27,7 +27,6 @@ export default function LoginPage() {
   const handleSubmit = (values, actions) => {
     dispatch(logIn({ ...values }));
     actions.resetForm();
-    console.log(logIn);
   };
 
   const initialValues = {
