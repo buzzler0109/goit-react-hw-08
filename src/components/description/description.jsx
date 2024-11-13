@@ -1,7 +1,9 @@
+import css from "./Description.module.css";
+
 export const Description = () => {
   return (
-    <div className="wrapper container form-body">
-      <h1 className="form-title">Phonebook</h1>
+    <div className={`${css.wrapper} ${css.container} ${css["form-body"]}`}>
+      <h1 className={css["form-title"]}>Phonebook</h1>
       <p style={{ marginBottom: "20px" }}>
         Phonebook is a single-page application designed to manage personal
         contacts efficiently. Users can create an account, log in, and securely
@@ -29,7 +31,7 @@ export const Description = () => {
           login sessions
         </li>
       </ul>
-      <p>
+      <p style={{ marginBottom: "20px" }}>
         <b>Please, use the navigation bar above to test this application</b>
       </p>
     </div>

@@ -3,9 +3,9 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 
-import css from "./ContactForm.module.scss";
+import css from "./editForm.module.scss";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/operations";
+import { updateContact } from "../../redux/contacts/operations";
 import toast, { Toaster } from "react-hot-toast";
 
 const inputSchema = Yup.object().shape({
@@ -19,16 +19,18 @@ const inputSchema = Yup.object().shape({
     .required("This field cannot be empty!"),
 });
 
-const ContactForm = () => {
+const EditForm = ({ contact }) => {
   const dispatch = useDispatch();
+  const id = contact.id;
+  console.log(id);
 
   const nameId = useId();
   const numberId = useId();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact({ ...values }));
+    dispatch(updateContact({ id, ...values }));
     actions.resetForm();
-    toast.success("A new contact has been successefully added", {
+    toast.success("Information has been successefully updated", {
       position: "bottom-center",
     });
   };
@@ -68,7 +70,7 @@ const ContactForm = () => {
         </div>
         <>
           <button className={css.btn} type="submit">
-            Add contact
+            Update info
           </button>
           <Toaster />
         </>
@@ -77,4 +79,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default EditForm;
